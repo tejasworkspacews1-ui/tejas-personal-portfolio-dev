@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Writings | Personal Portfolio</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="51">
+
+    <nav class="navbar fixed-top shadow-sm navbar-expand-lg navbar-light py-3 py-lg-0 px-lg-5">
+        <a href="index.html" class="navbar-brand ml-lg-3"><h1 class="m-0 display-5"><span class="text-primary">PORT </span>FOLIO</h1></a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
+            <div class="navbar-nav m-auto py-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="about.html" class="nav-item nav-link">About Me</a>
+                <a href="projects.html" class="nav-item nav-link">Projects</a>
+                <a href="writings.html" class="nav-item nav-link active">Writings</a>
+                <a href="network.html" class="nav-item nav-link">Networks</a>
+                <a href="feedback.html" class="nav-item nav-link">Feedback</a>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-5" style="margin-top: 80px;">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center mb-5">
+                <h1 class="display-1 text-uppercase text-outline" style="position: absolute; opacity: 0.1;">Library</h1>
+                <h1 class="text-uppercase text-primary position-relative">Writings & Research</h1>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <button class="btn btn-outline-primary m-1 filter-btn active" data-filter="all">All</button>
+                    <button class="btn btn-outline-light m-1 filter-btn" data-filter="Blog">Blogs</button>
+                    <button class="btn btn-outline-light m-1 filter-btn" data-filter="Thesis">Thesis</button>
+                    <button class="btn btn-outline-light m-1 filter-btn" data-filter="Assignment">Assignments</button>
+                </div>
+            </div>
+
+            <div class="row" id="writings-grid">
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border text-primary" role="status"></div>
+                    <p class="mt-2 text-muted">Accessing Archive...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5" style="background: rgba(0,0,0,0.8); border-top: 1px solid var(--glass-border);">
+        <div class="container text-center py-5">
+            <div class="d-flex justify-content-center mb-4">
+                <a class="btn btn-outline-primary btn-social mr-2" href="#"><i class="fab fa-discord"></i></a>
+                <a class="btn btn-outline-primary btn-social mr-2" href="#"><i class="fab fa-github"></i></a>
+                <a class="btn btn-outline-primary btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-outline-primary btn-social" href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="m-0">&copy; <a class="text-white font-weight-bold" href="#">Tejas Kamble</a>. All Rights Reserved. </p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const _supabase = supabase.createClient('https://mudrfauiwmxbeiedlizv.supabase.co', 'sb_publishable_AhQfALJCjBNrXpR5WEkeSg_6i5ek5Bq');
+
+        async function loadWritings() {
+            const { data, error } = await _supabase.from('writings').select('*').order('created_at', { ascending: false });
+            if (error) return console.error(error);
+
+            const grid = $('#writings-grid');
+            grid.empty();
+
+            data.forEach(item => {
+                grid.append(`
+                    <div class="col-lg-4 col-md-6 mb-4 writing-item" data-category="${item.category}">
+                        <div class="glass-card h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <span class="badge border-primary text-primary mb-3" style="border: 1px solid; padding: 5px 10px;">${item.category}</span>
+                                <h4 class="text-white">${item.title}</h4>
+                                <p class="text-muted small">${item.description}</p>
+                            </div>
+                            <a href="${item.file_url}" target="_blank" class="btn btn-sm btn-outline-primary mt-3">Read More</a>
+                        </div>
+                    </div>
+                `);
+            });
+        }
+        loadWritings();
+    </script>
+</body>
+</html>

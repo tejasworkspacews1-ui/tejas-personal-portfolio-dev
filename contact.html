@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Contact | Personal Portfolio</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="51">
+
+    <nav class="navbar fixed-top shadow-sm navbar-expand-lg navbar-light py-3 py-lg-0 px-lg-5">
+        <a href="index.html" class="navbar-brand ml-lg-3">
+            <h1 class="m-0 display-5"><span class="text-primary">PORT </span>FOLIO
+            </h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
+            <div class="navbar-nav m-auto py-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="about.html" class="nav-item nav-link">About Me</a>
+                <a href="projects.html" class="nav-item nav-link">Projects</a>
+                <a href="writings.html" class="nav-item nav-link">Writings</a>
+                <a href="the-zeal-club.html" class="nav-item nav-link">The Zeal Club</a>
+                <a href="feedback.html" class="nav-item nav-link">Feedback</a>
+                <a href="contact.html" class="nav-item nav-link active">Contact</a>
+            </div>
+            <a href="verify-password.html" class="btn btn-outline-primary d-none d-lg-block">Resume</a>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-5" style="margin-top: 80px;">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center mb-5">
+                <h1 class="display-1 text-uppercase text-outline" style="position: absolute; opacity: 0.1;">Connect</h1>
+                <h1 class="text-uppercase text-primary position-relative">Contact Me</h1>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-5 reveal active">
+                    <div class="glass-card mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fa fa-2x fa-map-marker-alt service-icon mr-3"></i>
+                            <div class="ml-3">
+                                <h5>Location</h5>
+                                <p class="m-0">Mumbai, Maharashtra, India</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fa fa-2x fa-envelope service-icon mr-3"></i>
+                            <div class="ml-3">
+                                <h5>Email</h5>
+                                <p class="m-0">tejasworkspacews1<br>@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fa fa-2x fa-phone-alt service-icon mr-3"></i>
+                            <div class="ml-3">
+                                <h5>Phone</h5>
+                                <p class="m-0">+91 8928545352</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card text-center">
+                        <h4 class="mb-4">Follow Me</h4>
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-outline-primary btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-primary btn-social mr-2" href="#"><i class="fab fa-github"></i></a>
+                            <a class="btn btn-outline-primary btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 reveal active mt-4 mt-lg-0">
+                    <div class="glass-card">
+                        <form id="contact-form" onsubmit="event.preventDefault(); sendMessage();">
+    <div class="form-row">
+        <div class="col-sm-6 control-group">
+            <input type="text" id="name" class="form-control p-4 mb-3" placeholder="Your Name" required />
+        </div>
+        <div class="col-sm-6 control-group">
+            <input type="email" id="email" class="form-control p-4 mb-3" placeholder="Your Email" required />
+        </div>
+    </div>
+    <div class="control-group">
+        <input type="text" id="subject" class="form-control p-4 mb-3" placeholder="Subject" required />
+    </div>
+    <div class="control-group">
+        <textarea id="message" class="form-control py-3 px-4 mb-3" rows="5" placeholder="Your Message" required></textarea>
+    </div>
+    <div>
+        <button class="btn btn-outline-primary w-100 py-3" type="submit">
+            Send Message <i class="fa fa-paper-plane ml-2"></i>
+        </button>
+    </div>
+</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5" style="background: rgba(0,0,0,0.8); border-top: 1px solid var(--glass-border);">
+        <div class="container text-center py-5">
+            <div class="d-flex justify-content-center mb-4">
+                <a class="btn btn-outline-primary btn-social mr-2" href="#"><i class="fab fa-discord"></i></a>
+                <a class="btn btn-outline-primary btn-social mr-2" href="#"><i class="fab fa-github"></i></a>
+                <a class="btn btn-outline-primary btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-outline-primary btn-social" href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="m-0">&copy; <a class="text-white font-weight-bold" href="#">Tejas Kamble</a>. All Rights Reserved. </p>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="script.js"></script>
+
+<script>
+    async function sendMessage() {
+        console.log("Button clicked, sendMessage started...");
+
+        // Safety check: ensures script.js did its job
+        if (!window._supabase) {
+            console.error("Supabase not initialized! Check script.js for window._supabase");
+            alert("Connection error. Please refresh the page.");
+            return;
+        }
+
+        const nameValue = document.getElementById('name').value;
+        const emailValue = document.getElementById('email').value;
+        const msgValue = document.getElementById('message').value;
+
+        try {
+            const { error } = await window._supabase
+                .from('messages')
+                .insert([{ 
+                    name: nameValue, 
+                    email: emailValue, 
+                    message_text: msgValue 
+                }]);
+
+            if (error) {
+                console.error('Supabase Error:', error);
+                alert("Error: " + error.message);
+            } else {
+                // VICTORY!
+                alert("Message sent to Tejas! 🚀");
+                document.getElementById('contact-form').reset();
+            }
+        } catch (err) {
+            console.error('Connection Error:', err);
+            alert("Failed to connect to the database.");
+        }
+    }
+</script>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

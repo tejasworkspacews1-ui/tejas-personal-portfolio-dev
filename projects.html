@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Projects | Personal Portfolio</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="51">
+
+    <nav class="navbar fixed-top shadow-sm navbar-expand-lg navbar-light py-3 py-lg-0 px-lg-5">
+        <a href="index.html" class="navbar-brand ml-lg-3"><h1 class="m-0 display-5"><span class="text-primary">PORT </span>FOLIO</h1></a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
+            <div class="navbar-nav m-auto py-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="about.html" class="nav-item nav-link">About Me</a>
+                <a href="projects.html" class="nav-item nav-link active">Projects</a>
+                <a href="writings.html" class="nav-item nav-link">Writings</a>
+                <a href="network.html" class="nav-item nav-link">Networks</a>
+                <a href="feedback.html" class="nav-item nav-link">Feedback</a>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-5" style="margin-top: 80px;">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center mb-5">
+                <h1 class="display-1 text-uppercase text-outline" style="position: absolute; opacity: 0.1;">Work</h1>
+                <h1 class="text-uppercase text-primary position-relative">Project Gallery</h1>
+            </div>
+
+            <div class="row" id="projects-grid">
+                </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5" style="background: rgba(0,0,0,0.8); border-top: 1px solid var(--glass-border);">
+        <div class="container text-center py-5">
+            <div class="d-flex justify-content-center mb-4">
+                <a class="btn btn-outline-primary btn-social mr-2" href="#"><i class="fab fa-discord"></i></a>
+                <a class="btn btn-outline-primary btn-social mr-2" href="#"><i class="fab fa-github"></i></a>
+                <a class="btn btn-outline-primary btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-outline-primary btn-social" href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="m-0">&copy; <a class="text-white font-weight-bold" href="#">Tejas Kamble</a>. All Rights Reserved. </p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+    // Use the existing global client if available, otherwise create it
+    const _supabase = window._supabase || supabase.createClient('https://mudrfauiwmxbeiedlizv.supabase.co', 'sb_publishable_AhQfALJCjBNrXpR5WEkeSg_6i5ek5Bq');
+
+    async function loadProjects() {
+        // Fetching data - sorting by priority (lower numbers usually come first)
+        const { data, error } = await _supabase
+            .from('projects')
+            .select('*')
+            .order('priority', { ascending: true });
+
+        if (error) {
+            console.error("Supabase Error:", error.message);
+            return;
+        }
+
+        const grid = $('#projects-grid');
+        grid.empty();
+
+        if (data.length === 0) {
+            grid.append('<div class="col-12 text-center text-muted"><p>No projects found in the database.</p></div>');
+            return;
+        }
+
+        data.forEach(p => {
+            // Safety Check: If tech_stack is null/empty, use an empty array to prevent .split() error
+            const stackArray = p.tech_stack ? p.tech_stack.split(',') : [];
+            
+            const chips = stackArray.map(t => 
+                `<span class="badge border-info text-info mr-1" style="font-size: 10px; border: 1px solid;">${t.trim()}</span>`
+            ).join('');
+            
+            grid.append(`
+                <div class="col-lg-6 mb-4">
+                    <div class="glass-card h-100 p-0 overflow-hidden">
+                        <img src="${p.image_url || 'https://via.placeholder.com/600x400'}" class="w-100" style="height: 220px; object-fit: cover; opacity: 0.6;">
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <h4 class="text-white m-0">${p.name || 'Untitled Project'}</h4>
+                                <small class="text-muted">${p.year || ''}</small>
+                            </div>
+                            <div class="mb-3">${chips}</div>
+                            <p class="text-muted small">${p.description || 'No description available.'}</p>
+                            <div class="d-flex justify-content-between pt-3 border-top border-secondary">
+                                <a href="${p.live_url || '#'}" target="_blank" class="text-primary small font-weight-bold">LIVE DEMO</a>
+                                <a href="${p.github_url || '#'}" target="_blank" class="text-white-50 small"><i class="fab fa-github"></i> SOURCE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `);
+        });
+        
+        // If you have a reveal animation function in script.js, trigger it here:
+        if (typeof reveal === 'function') reveal();
+    }
+
+    // Run on load
+    $(document).ready(function() {
+        loadProjects();
+    });
+</script>
+
+</body>
+</html>

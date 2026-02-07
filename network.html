@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Networks | Personal Portfolio</title>
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- MOBILE SAFETY FIXES -->
+    <style>
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        @media (max-width: 576px) {
+            .display-3 {
+                font-size: 2.2rem;
+                letter-spacing: 2px !important;
+            }
+
+            .display-1 {
+                font-size: 3rem;
+            }
+
+            .px-5 {
+                padding-left: 1.5rem !important;
+                padding-right: 1.5rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="51">
+
+<!-- NAVBAR -->
+<nav class="navbar fixed-top shadow-sm navbar-expand-lg navbar-light py-3 py-lg-0 px-lg-5">
+    <a href="index.html" class="navbar-brand ml-lg-3">
+        <h1 class="m-0 display-5">
+            <span class="text-primary">PORT </span>FOLIO
+        </h1>
+    </a>
+
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
+
+    <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
+        <div class="navbar-nav m-auto py-0">
+            <a href="index.html" class="nav-item nav-link">Home</a>
+            <a href="about.html" class="nav-item nav-link">About Me</a>
+            <a href="projects.html" class="nav-item nav-link">Projects</a>
+            <a href="writings.html" class="nav-item nav-link">Writings</a>
+            <a href="network.html" class="nav-item nav-link active">Networks</a>
+            <a href="feedback.html" class="nav-item nav-link">Feedback</a>
+            <a href="contact.html" class="nav-item nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="container-fluid py-5" style="margin-top: 80px; min-height: 85vh; display: flex; align-items: center;">
+    <div class="container text-center">
+        <div class="glass-card d-inline-block p-5 reveal active" style="max-width: 900px;">
+            <h1 class="display-3 text-uppercase text-white mb-3" style="letter-spacing: 5px;">
+                THE <span class="text-primary">NETWORKS</span> DEV HUB
+            </h1>
+            <p class="lead text-muted mb-4 px-lg-5">
+                A premium community for passionate creators and elite developers.
+                Join us to access exclusive resources, workshops, and curated networking.
+            </p>
+            <div class="d-flex justify-content-center pt-2">
+                <a href="#benefits" class="btn btn-outline-primary px-5 py-3">
+                    Explore Perks
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- BENEFITS -->
+<div class="container-fluid py-5" id="benefits">
+    <div class="container">
+        <div class="position-relative d-flex align-items-center justify-content-center mb-5">
+            <h1 class="display-1 text-uppercase text-outline" style="position:absolute;opacity:0.1;">Perks</h1>
+            <h1 class="text-uppercase text-primary position-relative">Member Benefits</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4 reveal">
+                <div class="glass-card h-100 text-center py-5">
+                    <i class="fa fa-3x fa-gem service-icon mb-4"></i>
+                    <h4 class="text-white font-weight-bold mb-3">Exclusive Resources</h4>
+                    <p class="text-muted mb-0">
+                        Premium UI kits, curated tools, and private learning material.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4 reveal">
+                <div class="glass-card h-100 text-center py-5">
+                    <i class="fa fa-3x fa-laptop-code service-icon mb-4"></i>
+                    <h4 class="text-white font-weight-bold mb-3">Workshops</h4>
+                    <p class="text-muted mb-0">
+                        Guided sessions on development, AI, and real-world building.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4 reveal">
+                <div class="glass-card h-100 text-center py-5">
+                    <i class="fa fa-3x fa-rocket service-icon mb-4"></i>
+                    <h4 class="text-white font-weight-bold mb-3">Network</h4>
+                    <p class="text-muted mb-0">
+                        A focused community of builders, mentors, and collaborators.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JOIN -->
+<div class="container-fluid py-5 mb-5" id="join">
+    <div class="container">
+        <div class="glass-card p-5 text-center reveal">
+            <h2 class="text-white text-uppercase mb-4">Join Network</h2>
+            <p class="text-muted mb-5">
+                Applications are reviewed manually to maintain community quality.
+            </p>
+
+            <a
+                href="https://tally.so/r/WOzyWQ"
+                target="_blank"
+                class="btn btn-outline-primary px-5 py-3"
+            >
+                Join Network
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5" style="background: rgba(0,0,0,0.8);">
+    <div class="container text-center py-5">
+        <div class="d-flex justify-content-center mb-4">
+            <a class="btn btn-outline-primary btn-social mr-2"><i class="fab fa-discord"></i></a>
+            <a class="btn btn-outline-primary btn-social mr-2"><i class="fab fa-github"></i></a>
+            <a class="btn btn-outline-primary btn-social mr-2"><i class="fab fa-linkedin-in"></i></a>
+            <a class="btn btn-outline-primary btn-social"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="m-0">&copy; Tejas Kamble. All Rights Reserved.</p>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+/* =========================================
+A1 AESTHETIC - CORE STYLES
+========================================= */
+:root {
+--bg-dark: #050505;
+--neon-cyan: #00f2ff;
+--neon-purple: #bc13fe;
+--text-main: #ffffff;
+--text-muted: #b0b0b0;
+--glass-bg: rgba(255, 255, 255, 0.03);
+--glass-border: rgba(255, 255, 255, 0.08);
+--glass-highlight: rgba(255, 255, 255, 0.15);
+}
+
+body {
+background-color: var(--bg-dark);
+color: var(--text-main);
+font-family: 'Roboto', sans-serif;
+overflow-x: hidden;
+/* Dynamic animated mesh background */
+background-image:
+radial-gradient(circle at 10% 20%, rgba(188, 19, 254, 0.1), transparent 40%),
+radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.1), transparent 40%);
+background-attachment: fixed;
+}
+
+/* --- TYPOGRAPHY & GLOWS --- */
+h1, h2, h3, h4, h5, h6 {
+color: var(--text-main);
+font-weight: 700;
+letter-spacing: 1px;
+}
+
+.text-primary {
+color: var(--neon-cyan) !important;
+text-shadow: 0 0 15px rgba(0, 242, 255, 0.6);
+}
+
+.text-outline {
+-webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+color: transparent;
+}
+
+p, span, small {
+color: var(--text-muted);
+}
+
+/* --- GLASSMORPHISM UTILITY --- */
+.glass-card {
+background: var(--glass-bg);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border: 1px solid var(--glass-border);
+border-radius: 16px;
+padding: 2rem;
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+transform: translateY(-5px);
+border-color: var(--glass-highlight);
+box-shadow: 0 0 20px rgba(0, 242, 255, 0.15);
+}
+
+/* --- NAVBAR --- */
+.navbar {
+background: rgba(5, 5, 5, 0.85);
+backdrop-filter: blur(20px);
+border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar-light .navbar-nav .nav-link {
+color: rgba(255, 255, 255, 0.7) !important;
+transition: 0.3s;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+color: var(--neon-cyan) !important;
+text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* --- BUTTONS --- */
+.btn-outline-primary {
+color: var(--neon-cyan);
+border-color: var(--neon-cyan);
+border-radius: 50px;
+padding: 10px 30px;
+text-transform: uppercase;
+letter-spacing: 1px;
+transition: 0.3s;
+}
+
+.btn-outline-primary:hover {
+background: var(--neon-cyan);
+color: #000;
+box-shadow: 0 0 20px var(--neon-cyan);
+border-color: var(--neon-cyan);
+}
+
+/* --- SECTION SPECIFICS --- */
+
+/* Profile Image Animation */
+.profile-img {
+border: 2px solid var(--glass-border);
+box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
+animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+0% { transform: translateY(0px); }
+50% { transform: translateY(-15px); }
+100% { transform: translateY(0px); }
+}
+
+/* Skills */
+.progress {
+background: rgba(255, 255, 255, 0.05);
+height: 6px;
+border-radius: 10px;
+overflow: visible;
+}
+
+.progress-bar {
+background-color: var(--neon-cyan);
+box-shadow: 0 0 10px var(--neon-cyan);
+border-radius: 10px;
+position: relative;
+}
+
+/* Icon Colors */
+.service-icon {
+background: transparent !important;
+color: var(--neon-cyan) !important;
+border: 1px solid var(--neon-cyan);
+border-radius: 50%;
+width: 60px;
+height: 60px;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+margin-bottom: 15px;
+}
+
+/* Scroll Animation Class */
+.reveal {
+opacity: 0;
+transform: translateY(50px);
+transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* Form Inputs */
+.form-control {
+background: var(--glass-bg);
+border: 1px solid var(--glass-border);
+color: white;
+}
+
+.form-control:focus {
+background: rgba(255, 255, 255, 0.1);
+border-color: var(--neon-cyan);
+box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+color: white;
+}
+
+/* Background video (behind everything) */
+.bg-video {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+z-index: -2;
+filter: brightness(0.35) saturate(1.3);
+pointer-events: none;
+}
+
+html, body {
+max-width: 100%;
+overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+
+{
+max-width: 100%;
+box-sizing: border-box;
+}
+
+
+img, video, iframe {
+max-width: 100%;
+height: auto;
+}
+}
+
+body {
+-webkit-text-size-adjust: 100%;
+}
+
+@media (max-width: 576px) {
+.glass-card {
+background: rgba(255,255,255,0.08);
+backdrop-filter: blur(14px);
+}
+}
+
+@media (max-width: 576px) {
+body {
+-webkit-font-smoothing: antialiased;
+}
+}
+
+@media (max-width: 576px) {
+.glass-card {
+box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+}
+
+
+h1, h2, h3 {
+letter-spacing: 1px;
+}
+
+.glass-card {
+background: rgba(255,255,255,0.08);
+backdrop-filter: blur(14px);
+box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+}
+
+section, .container-fluid {
+padding-top: 4rem;
+padding-bottom: 4rem;
+}
+
+/* === GLOBAL BASE CANVAS (MATCH INDEX) === */
+.app-page {
+background:
+radial-gradient(
+circle at top,
+rgba(255,255,255,0.06),
+rgba(0,0,0,0.95)
+),
+linear-gradient(
+180deg,
+#050505,
+#020202
+);
+color: #ffffff;
+}
+
+.glass-card {
+background: rgba(255,255,255,0.085);
+backdrop-filter: blur(14px);
+}
+
+.hero, .container-fluid:first-of-type {
+background: transparent;
+}
+
